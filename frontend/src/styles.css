@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* tell tailwind where to scan (v4) */
+@source "./index.html";
+@source "./src/**/*.{js,jsx}";
+
+/* ---------- Brand palette ---------- */
+:root{
+  --brand: 28 82% 52%;
+  --brand-600: 28 82% 45%;
+  --brand-700: 28 82% 38%;
+  --bg: 210 20% 98%;
+  --fg: 222 47% 11%;
+  --muted: 215 16% 47%;
+  --border: 215 16% 85%;
+  --card: 0 0% 100%;
+}
+
+/* modal open animation */
+@keyframes modalIn {
+  from { transform: translateY(6px) scale(.98); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+.animate-modal-in { animation: modalIn 180ms cubic-bezier(.2,.9,.3,1) both; }
+
+
+/* ---------- Base helpers ---------- */
+@utility container { @apply max-w-7xl mx-auto px-4; }
+@utility card { @apply rounded-2xl border shadow-sm bg-white p-5; border-color: hsl(var(--border)); }
+@utility input { @apply w-full rounded-xl border px-3 py-2 text-sm; border-color: hsl(var(--border)); }
+@utility select { @apply w-full rounded-xl border px-3 py-2 text-sm bg-white; border-color: hsl(var(--border)); }
+
+/* ---------- Buttons ---------- */
+@utility btn { @apply inline-flex items-center justify-center gap-2 rounded-xl border text-sm font-medium px-4 py-2 transition-all; border-color: hsl(var(--border)); }
+@utility btn-primary { @apply text-white border-0; background: hsl(var(--brand)); }
+@utility btn-ghost { @apply bg-white hover:bg-gray-100; }
+@utility btn-soft {
+  color: hsl(var(--brand));
+  background: color-mix(in hsl, hsl(var(--brand)) 12%, white);
+  border-color: color-mix(in hsl, hsl(var(--brand)) 35%, white);
+}
+
+/* ---------- Badges / Chips / Tags ---------- */
+@utility badge { @apply inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-medium; border-color: hsl(var(--border)); }
+@utility badge-role-alumni { color: #1e40af; background: #e0e7ff; border-color: #c7d2fe; }
+@utility badge-role-student { color: #065f46; background: #d1fae5; border-color: #a7f3d0; }
+
+@utility chip { @apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs cursor-pointer select-none; border-color: hsl(var(--border)); }
+@utility chip-active {
+  color: hsl(var(--brand));
+  border-color: color-mix(in hsl, hsl(var(--brand)) 60%, white);
+  background: color-mix(in hsl, hsl(var(--brand)) 12%, white);
+}
+
+/* ---------- Sidebar / Topbar ---------- */
+@utility sidebar { @apply w-56 shrink-0 h-[calc(100vh-56px)] bg-white border-r rounded-xl; border-color: hsl(var(--border)); }
+@utility topbar { @apply border-b bg-white; border-color: hsl(var(--border)); }
+
+/* ---------- Headings / Text ---------- */
+@utility h1 { @apply text-3xl md:text-4xl font-extrabold tracking-tight; color: hsl(var(--fg)); }
+@utility h2 { @apply text-2xl font-bold; color: hsl(var(--fg)); }
+@utility meta { @apply text-sm text-gray-600; }
+
+/* ---------- Profile card specifics ---------- */
+@utility avatar { @apply grid place-items-center rounded-full text-white font-semibold; width: 48px; height: 48px; background: hsl(var(--brand)); }
+@utility pill { @apply inline-flex items-center rounded-full px-2.5 py-1 text-[11px]; background: color-mix(in hsl, hsl(var(--brand)) 10%, white); color: hsl(var(--brand)); }

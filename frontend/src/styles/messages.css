@@ -1,0 +1,6 @@
+/* frontend/src/styles/messages.css */
+/* Minimal styling to make the messages page look WhatsApp-like while keeping your theme */
+.card { background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
+.input { border: 1px solid #e5e7eb; padding: 8px 12px; border-radius: 10px; }
+.btn { padding: 8px 12px; border-radius: 10px; }
+.btn-primary { background: #f97316; color: white; border: none; }
